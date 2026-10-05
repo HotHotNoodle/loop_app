@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-cream: #fbf5ec;
+  --color-sand: #f3ebdf;
+  --color-card: #fffdf9;
+  --color-ink: #1c1c21;
+  --color-muted: #6e6c70;
+  --color-line: #ece4d8;
+
+  --color-teal: #1f5a66;
+  --color-teal-dark: #17454f;
+  --color-teal-soft: #dcf0f3;
+  --color-teal-mist: #e6f0f0;
+
+  --color-orange: #f0913a;
+  --color-orange-dark: #e07b22;
+  --color-orange-soft: #fde6d0;
+
+  --color-pass: #c7353a;
+  --color-join: #2a8a5c;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: #11141c;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-rise { animation: rise 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  70% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.animate-pop { animation: pop 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both; }

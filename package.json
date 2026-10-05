@@ -1,0 +1,18 @@
+{
+  "name": "loop",
+  "private": true,
+  "workspaces": [
+    "web",
+    "server"
+  ],
+  "scripts": {
+    "setup": "node server/scripts/setup-env.mjs && npm run db:reset -w server",
+    "dev": "concurrently -n idp,api,web -c magenta,cyan,yellow \"npm run idp -w server\" \"npm run dev -w server\" \"npm run dev -w web\"",
+    "build": "npm run build -w web && npm run typecheck -w server",
+    "start": "concurrently -n idp,api -c magenta,cyan \"npm run idp -w server\" \"npm run start -w server\"",
+    "test": "npm test -w server"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
+}
